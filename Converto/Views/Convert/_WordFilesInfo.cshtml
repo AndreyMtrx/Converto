@@ -1,0 +1,25 @@
+﻿@using Converto.ViewModels
+@model IEnumerable<FileViewModel>
+
+<div class="files__info-wrapper">
+    <img src="~/images/double-chevron.svg" alt="double arrow" class="files__info-img" />
+    @foreach (FileViewModel file in Model)
+    {
+    <div class="files__item">
+        <img src="~/images/fileInfoImages/word.svg" alt="word" class="files__item-img" />
+        <div class="files__item-name">@file.FileName</div>
+        @{double MBLength = file.FileSize / 10000;}
+        @{double KBLength = file.FileSize / 1000;}
+        @if (file.FileSize > 1000000)
+        {
+            <div class="files__item-size">@MBLength MB</div>
+        }
+        else
+        {
+            <div class="files__item-size">@KBLength KB</div>
+        }
+    </div>
+    }
+
+    <button class="upload__file-btn btn btn-outline-primary" type="submit">Convert it to PDF !</button>
+</div>

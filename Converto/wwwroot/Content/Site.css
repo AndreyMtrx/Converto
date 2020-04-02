@@ -1,0 +1,257 @@
+﻿body {
+    font-family: 'Akzidenz-Grotesk Pro Regular';
+    margin:0;
+    padding:0;
+}
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+}
+a{
+    color:#000;
+}
+a:hover{
+    color:#000;
+    text-decoration:none;
+}
+.header {
+    width: 100%;
+    padding: 28px 0;
+    border-bottom: 1px solid #dedede;
+}
+.header__inner {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width: 100%;
+    max-width:1100px;
+    margin:0 auto;
+}
+.header__logo {
+    display:flex;
+    align-items:center;
+}
+.header__logo-img {
+    width:100%;
+    max-width: 50px;
+}
+.header__logo-text {
+    font-family: 'Baloo Thambi 2', cursive;
+    font-size: 33px;
+    margin-left: 15px;
+}
+.header__nav{
+
+}
+.header__nav-item{
+    transition:color 0.3s linear;
+    color:#000;
+    margin-right:40px;
+    font-size:19px;
+    font-weight:600;
+}
+.header__nav-item:hover{
+    text-decoration:none;
+    color:#151515;
+}
+.header__nav-item:last-child {
+    margin-right: 0;
+}
+.what-we-do {
+    margin-top: 40px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+.try__it-title{
+    text-align:center;
+    margin-top:15px;
+    margin-bottom: 44px;
+}
+.conversions{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+.conversion__item {
+    transition: background-color 100ms linear;
+    border-radius: 20px;
+    width: 31.5%;
+    background-color: #f4f2f8;
+    background-color: rgb(231, 240, 255);
+    padding: 40px 25px;
+    margin-bottom: 30px;
+}
+.conversion__item:hover {
+    cursor: pointer;
+    background-color: rgb(61, 153, 245);
+}
+.conversion__item:hover .conversion__item-title {
+    color: #fff;
+}
+.conversion__item:hover .conversion__item-desc {
+    color: #fff;
+}
+.conversion__item-title {
+    position: relative;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.right__arrow{
+    transform:translate(25%,-14%);
+    width:16px;
+}
+.conversion__item-desc {
+    color: #575757;
+    font-size: 18px;
+}
+footer {
+    width: 100%;
+    padding: 28px 0;
+    margin-top:20px;
+    border-top: 1px solid #dedede;
+}
+footer a:hover{
+    text-decoration:underline;
+}
+
+.convert__page-title{
+    font-size:30px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:10px;
+    margin-top:40px;
+}
+.convert__page-subtitle {
+    text-align: center;
+    margin-bottom:40px;
+}
+.convert__form {
+    width: 100%;
+    margin-bottom:60px;
+}
+.convert__form-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity:0;
+    overflow:hidden;
+    position:absolute;
+    z-index:-1;
+}
+.convert__form-label-wrapper {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(61, 153, 245);
+    min-height: 350px;
+}
+.convert__form-inner {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.1);
+    border-width: 2px;
+    border-style: dashed;
+    border-color: rgba(0, 0, 0, 0.15);
+    padding: 40px 0px;
+}
+.convert__form-img {
+    display: block;
+    width: 60px;
+    margin-bottom: 35px;
+}
+.convert__form-inner{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.convert__form-choose {
+    display: flex;
+    align-items:center;
+    margin-bottom:20px;
+    padding:20px 30px;
+    background-color:#fff;
+    border-radius:12px;
+}
+.convert__form-choose-img{
+    display:block;
+    width:30px;
+    margin-right:16px;
+}
+.convert__form-choose-text {
+    font-size:19px;
+    font-weight:700;
+}
+.convert__form-dragdrop{
+    color:white;
+}
+
+.files__info-wrapper{
+    display:flex;
+    align-items:center;
+    margin-top:50px;
+}
+.files__info-img{
+    display:block;
+    width:80px;
+    margin-right:60px;
+}
+.files__item {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.files__item-img {
+    display: block;
+    width: 70px;
+    margin-bottom:10px;
+}
+.files__item-name {
+    font-size: 23px;
+    font-weight: 700;
+}
+.files__item-size{
+    font-size:23px;
+}
+.upload__file-btn {
+    font-size: 21px;
+    font-weight: 700;
+    padding: 15px 12px;
+    border-color: rgb(61, 153, 245);
+}
+.upload__file-btn:hover {
+    background-color: rgb(61, 153, 245);
+}
+.how{
+
+}
+.how__img{
+
+}
+.how__img img {
+    display:block;
+    width:300px;
+}
+.how__wrapper{
+
+}
+.how__title{
+
+}
+.how__point{
+
+}
+.how__point-number{
+
+}
+.how__point-text{
+
+}

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/libs/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2:800&display=swap" rel="stylesheet">
+    <link href="~/Content/Font.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                <a asp-controller="Converto" asp-action="Index"><img src="~/images/transfer (1).svg" alt="Logo" class="header__logo-img" /></a>
+                <div class="header__logo-text">Converto</div>
+            </div>
+            <nav class="header__nav">
+                <a href="#" class="header__nav-item">Convert</a>
+                <a href="#" class="header__nav-item">About us</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <p><a target="_blank" href="https://github.com/AndreyMtrx">&copy; 2020 - Andrey Laptev</a></p>
+        </div>
+    </footer>
+    <script src="~/libs/jQuery/jquery-3.4.1.js"></script>
+</body>
+</html>

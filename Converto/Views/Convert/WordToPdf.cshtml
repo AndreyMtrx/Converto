@@ -1,0 +1,41 @@
+﻿<h2 class="convert__page-title">DOCX to PDF</h2>
+<h4 class="convert__page-subtitle">Convert and save your files for free</h4>
+
+<form class="convert__form" id="convertForm" asp-controller="Convert" asp-action="WordToPdf" method="post" enctype="multipart/form-data">
+    <input class="convert__form-input" type="file" name="files" id="inputFiles" accept=".docx" multiple />
+    <label class="convert__form-label-wrapper" for="inputFiles" id="inputLabel">
+        <div class="convert__form-inner">
+            <img src="~/images/doc.svg" alt="" class="convert__form-img" />
+            <div class="convert__form-choose">
+                <img src="~/images/new.svg" alt="" class="convert__form-choose-img" />
+                <div class="convert__form-choose-text">Choose files</div>
+            </div>
+            <div class="convert__form-dragdrop">or drag and drop files here</div>
+        </div>
+    </label>
+</form>
+
+<div class="how">
+    <div class="how__img"><img src="~/images/filecomversion.svg" alt="files" /></div>
+    <div class="how__wrapper">
+        <h2 class="how__title">How to convert your files:</h2>
+        <div class="how__point">
+            <span class="how__point-number">1</span>
+            <div class="how__point-text">Upload files to our convertor</div>
+        </div>
+        <div class="how__point">
+            <span class="how__point-number">2</span>
+            <div class="how__point-text">Press "Convert" button</div>
+        </div>
+        <div class="how__point">
+            <span class="how__point-number">3</span>
+            <div class="how__point-text">Wait for the converter to finish and download your files</div>
+        </div>
+        <div class="how__point">
+            <span class="how__point-number">4</span>
+            <div class="how__point-text">Rate our application at the bottom of the page♥</div>
+        </div>
+    </div>
+</div>
+<script src="~/js/convert.js"></script>
+
