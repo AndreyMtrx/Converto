@@ -1,6 +1,6 @@
 ﻿@using Converto.ViewModels
 @model IEnumerable<FileViewModel>
-
+    <div class="files__info" id="filesInfo">
 <div class="files__info-wrapper">
     <img src="~/images/double-chevron.svg" alt="double arrow" class="files__info-img" />
     @foreach (FileViewModel file in Model)
@@ -22,4 +22,5 @@
     }
 
     <button class="upload__file-btn btn btn-outline-primary" type="submit">Convert it to PDF !</button>
+</div>
 </div>

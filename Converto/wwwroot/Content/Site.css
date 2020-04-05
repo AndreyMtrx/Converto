@@ -130,7 +130,7 @@ footer a:hover{
 }
 .convert__form {
     width: 100%;
-    margin-bottom:60px;
+    margin-bottom:90px;
 }
 .convert__form-input {
     width: 0.1px;
@@ -192,11 +192,13 @@ footer a:hover{
 .convert__form-dragdrop{
     color:white;
 }
-
-.files__info-wrapper{
-    display:flex;
-    align-items:center;
-    margin-top:50px;
+.files__info{
+    display:none;
+}
+.files__info-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
 }
 .files__info-img{
     display:block;
@@ -230,11 +232,18 @@ footer a:hover{
 .upload__file-btn:hover {
     background-color: rgb(61, 153, 245);
 }
-.how{
-
+.how {
+    width: 100%;
+    border-top: 1px solid #dedede;
+    padding: 50px 0;
+}
+.how__inner {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .how__img{
-
+    margin-right:20px;
 }
 .how__img img {
     display:block;
@@ -244,14 +253,16 @@ footer a:hover{
 
 }
 .how__title{
-
+    margin-bottom:20px;
+    font-weight:700;
 }
 .how__point{
-
+    margin-bottom:15px;
+    font-size:20px;
 }
-.how__point-number{
-
+.how__point-number {
+    font-weight:700;
 }
-.how__point-text{
-
+.heart{
+    color:red;
 }

@@ -1,4 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿
+  
+  
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -26,11 +29,8 @@
     <Folder Include="Data\Interfaces\" />
     <Folder Include="Data\Mocks\" />
     <Folder Include="Data\Repositories\" />
+    <Folder Include="wwwroot\Files\" />
     <Folder Include="wwwroot\images\fileInfoImages\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\Files\Labs.docx" />
   </ItemGroup>
 
 </Project>

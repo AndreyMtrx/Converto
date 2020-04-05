@@ -17,8 +17,10 @@
             contentType: false,
             data: formData
         }).done(function (partialView) {
+            $("#filesInfo").remove();
             let form = document.getElementById("convertForm");
             form.insertAdjacentHTML("beforeend", partialView);
+            $("#filesInfo").slideDown(100);
         });
     }
 
@@ -32,6 +34,7 @@
         e.preventDefault();
         let inputFiles = document.getElementById("inputFiles");
         let files = inputFiles.files;
+
 
         let formData = new FormData();
         for (let i = 0; i < files.length; i++) {
