@@ -11,7 +11,7 @@
         }
 
         $.ajax({
-            url: "/Convert/WordFilesInfo",
+            url: "/Convert/FilesInfo",
             type: "post",
             processData: false,
             contentType: false,
@@ -41,6 +41,18 @@
             formData.append("files", files[i]);
         }
 
+
+        $.ajax({
+            type: "get",
+            url: "/Convert/ConversionProcess"
+        }).done(function (partialView) {
+            $("#filesInfo").slideUp(100, "linear", function () {
+                convertForm.remove();
+                $(".convert__page-subtitle").after(partialView);
+            });
+
+        });
+
         $.ajax({
             type: "post",
             url: "/Convert/WordToPdf",
@@ -48,7 +60,8 @@
             contentType: false,
             data: formData
         }).done(function (partialView) {
-            console.log(formData);
+            $(".conversion__process").remove();
+            $(".convert__page-subtitle").after(partialView);
         });
     }
 

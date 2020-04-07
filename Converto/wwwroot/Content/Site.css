@@ -266,3 +266,61 @@ footer a:hover{
 .heart{
     color:red;
 }
+.conversion__process {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 350px;
+    margin-bottom: 90px;
+    border: 1px solid #c8c8c8;
+}
+.conversion__process-img{
+    display:block;
+    width:110px;
+    margin-bottom:20px;
+}
+.conversion__process-text{
+    font-size:20px;
+}
+.conversion__result {
+    width: 70%;
+    margin:0 auto;
+    min-height: 350px;
+    margin-bottom: 90px;
+    border: 1px solid #c8c8c8;
+    padding:28px 35px;
+}
+.result__title{
+    font-size:25px;
+    font-weight:700;
+    margin-bottom:40px;
+}
+.result__title-img{
+    width:20px;
+}
+.result__file {
+    margin-bottom: 30px;
+}
+.result__file-img {
+    display: inline-block;
+    margin-right: 20px;
+    width: 60px;
+}
+.result__file-name {
+    display: inline-block;
+    font-size: 18px;
+    font-weight:700;
+    margin-right:50px;
+}
+.download__btn {
+    display: inline-block;
+    float: right;
+    font-weight: 700;
+    padding: 17px 25px;
+    background-color: rgb(61, 153, 245);
+}
+.download__btn-img{
+    width:20px;
+}

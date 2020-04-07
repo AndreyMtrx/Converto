@@ -4,6 +4,7 @@ using Converto.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,7 +24,12 @@ namespace Converto.Controllers
         {
             _environment = environment;
         }
-
+        public PhysicalFileResult GetFile(string fileName, string conversionGuid)
+        {
+            string filePath = Path.Combine(_environment.ContentRootPath, $"wwwroot\\Files\\{conversionGuid}\\Converted\\{fileName}");
+            string mimeType = MimeTypes.GetMimeType(filePath);
+            return PhysicalFile(filePath, mimeType, fileName);
+        }
         [HttpGet]
         public ViewResult WordToPdf()
         {
@@ -34,16 +40,17 @@ namespace Converto.Controllers
         public async Task<PartialViewResult> WordToPdf(IFormFileCollection files)
         {
             string conversionGuid = Guid.NewGuid().ToString();
-            if (files.Count > 0)
-            {
-                await UploadFiles(files, conversionGuid);
-                await ConvertFiles("docx", "pdf", conversionGuid);
-            }
-            return PartialView("_WordToPdf");
+
+            await UploadFiles(files, conversionGuid);
+            await ConvertFiles("docx", "pdf", conversionGuid);
+
+            List<FileViewModel> filesVM = GetFilesViewModel(conversionGuid);
+
+            return PartialView("_ConversionResult", filesVM);
         }
 
         [HttpPost]
-        public PartialViewResult WordFilesInfo(IFormFileCollection files)
+        public PartialViewResult FilesInfo(IFormFileCollection files)
         {
             List<FileViewModel> fileViewList = new List<FileViewModel>();
             foreach (IFormFile file in files)
@@ -56,7 +63,12 @@ namespace Converto.Controllers
             }
 
             ViewBag.fileCount = fileViewList.Count();
-            return PartialView("_WordFilesInfo", fileViewList);
+            return PartialView("_FilesInfo", fileViewList);
+        }
+
+        public PartialViewResult ConversionProcess()
+        {
+            return PartialView("_ConversionProcess");
         }
 
         private async Task UploadFiles(IFormFileCollection files, string conversionGuid)
@@ -77,7 +89,6 @@ namespace Converto.Controllers
         }
 
         private async Task ConvertFiles(string fromFormat, string toFormat, string conversionGuid)
-
         {
             string filesToConvertPath = Path.Combine(_environment.ContentRootPath, $"wwwroot\\Files\\{conversionGuid}");
             string convertedFilesPath = Path.Combine(filesToConvertPath, "Converted");
@@ -92,6 +103,20 @@ namespace Converto.Controllers
 
                 await convertResponse.SaveFilesAsync(convertedFilesPath);
             }
+        }
+        private List<FileViewModel> GetFilesViewModel(string conversionGuid)
+        {
+            List<FileViewModel> filesVM = new List<FileViewModel>();
+            string convertedFilesPath = Path.Combine(_environment.ContentRootPath, $"wwwroot\\Files\\{conversionGuid}\\Converted");
+            foreach (string filePath in Directory.GetFiles(convertedFilesPath))
+            {
+                filesVM.Add(new FileViewModel()
+                {
+                    FileName = Path.GetFileName(filePath),
+                    ConversionGuid = conversionGuid
+                });
+            }
+            return filesVM;
         }
     }
 }

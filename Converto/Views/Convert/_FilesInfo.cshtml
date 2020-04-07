@@ -6,7 +6,7 @@
     @foreach (FileViewModel file in Model)
     {
     <div class="files__item">
-        <img src="~/images/fileInfoImages/word.svg" alt="word" class="files__item-img" />
+        <img src="~/images/fileinfo.svg" alt="word" class="files__item-img" />
         <div class="files__item-name">@file.FileName</div>
         @{double MBLength = file.FileSize / 10000;}
         @{double KBLength = file.FileSize / 1000;}
@@ -21,6 +21,6 @@
     </div>
     }
 
-    <button class="upload__file-btn btn btn-outline-primary" type="submit">Convert it to PDF !</button>
+    <button class="upload__file-btn btn btn-outline-primary" type="submit">Convert it now !</button>
 </div>
 </div>

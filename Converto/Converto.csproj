@@ -21,6 +21,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="MimeKit" Version="2.6.0" />
     <PackageReference Include="Westwind.AspnetCore.LiveReload" Version="0.1.17" />
   </ItemGroup>
 

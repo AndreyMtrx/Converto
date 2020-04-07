@@ -9,5 +9,6 @@ namespace Converto.ViewModels
     {
         public string FileName { get; set; }
         public long FileSize { get; set; }
+        public string ConversionGuid { get; set; }
     }
 }

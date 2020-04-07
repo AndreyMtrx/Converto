@@ -11,10 +11,6 @@ _build/
 _site/
 Properties/
 
-# See #577
-# Use git add -f to force override .sln when required. Not needed in most cases.
-# git add -f myProj.sln
-*.sln
 
 Project_Readme.html
 
@@ -201,7 +197,6 @@ UpgradeLog*.htm
 *.ldf
 
 # Business Intelligence projects
-*.rdl.data
 *.bim.layout
 *.bim_*.settings
 

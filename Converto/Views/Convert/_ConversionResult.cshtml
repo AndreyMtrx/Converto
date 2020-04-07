@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Converto.ViewModels.FileViewModel>
+
+<div class="conversion__result">
+    <div class="result__title">Conversion was succefully done, you can download the files <span aria-hidden="true"><img class="result__title-img" src="https://twemoji.maxcdn.com/2/72x72/1f60d.png"></span></div>
+
+    @foreach (var file in Model)
+    {
+        <div class="result__file">
+            <img src="~/images/file-document-svgrepo-com.svg" alt="file" class="result__file-img" />
+            <div class="result__file-name">@file.FileName</div>
+            <a href="/Convert/GetFile?fileName=@file.FileName&conversionGuid=@file.ConversionGuid" class="download__btn btn btn-primary"> <img class="download__btn-img" src="~/images/direct-download.svg" />&nbsp;&nbsp;DOWNLOAD</a>
+        </div>
+    }
+</div>
