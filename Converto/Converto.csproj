@@ -26,10 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Models\" />
-    <Folder Include="Data\Interfaces\" />
     <Folder Include="Data\Mocks\" />
-    <Folder Include="Data\Repositories\" />
     <Folder Include="wwwroot\Files\" />
     <Folder Include="wwwroot\images\fileInfoImages\" />
   </ItemGroup>

@@ -5,6 +5,12 @@
 
     function inputChangeEventHandler() {
         let files = this.files;
+        console.log(files);
+        if (files.length > 3) {
+            alert("You can not convert more than 3 files");
+            return false;
+        }
+
         let formData = new FormData();
         for (let i = 0; i < files.length; i++) {
             formData.append("files", files[i]);

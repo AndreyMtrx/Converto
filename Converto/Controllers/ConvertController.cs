@@ -1,5 +1,7 @@
 ﻿using ConvertApiDotNet;
 using ConvertApiDotNet.Model;
+using Converto.Data;
+using Converto.Data.Models;
 using Converto.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,14 +17,16 @@ namespace Converto.Controllers
 {
     public class ConvertController : Controller
     {
+        private ApplicationDbContext dbContext;
         private IWebHostEnvironment _environment;
 
         private string secret = Startup.Configuration["Secret"];
         private ConvertApi convertApi => new ConvertApi(secret);
 
-        public ConvertController(IWebHostEnvironment environment)
+        public ConvertController(IWebHostEnvironment environment,ApplicationDbContext context)
         {
             _environment = environment;
+            dbContext = context;
         }
         public PhysicalFileResult GetFile(string fileName, string conversionGuid)
         {
@@ -45,6 +49,8 @@ namespace Converto.Controllers
             await ConvertFiles("docx", "pdf", conversionGuid);
 
             List<FileViewModel> filesVM = GetFilesViewModel(conversionGuid);
+
+            await SaveConversionInfo(files, conversionGuid, "docx", "pdf");
 
             return PartialView("_ConversionResult", filesVM);
         }
@@ -117,6 +123,21 @@ namespace Converto.Controllers
                 });
             }
             return filesVM;
+        }
+        private async Task SaveConversionInfo(IFormFileCollection files, string conversionGuid, string fromFormat, string toFormat)
+        {
+            foreach (IFormFile file in files)
+            {
+                Conversion conversion = new Conversion()
+                {
+                    ConversionGuid = conversionGuid,
+                    FileName = file.FileName,
+                    FromFormat = fromFormat,
+                    ToFormat = toFormat
+                };
+                dbContext.Add(conversion);
+            }
+            await dbContext.SaveChangesAsync();
         }
     }
 }

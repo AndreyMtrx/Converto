@@ -3,8 +3,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/libs/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2:800&display=swap" rel="stylesheet">
+    <link href="~/libs/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/Font.css" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet">
     <title>@ViewBag.Title</title>
@@ -12,14 +12,15 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <div class="header__logo">
-                <a asp-controller="Converto" asp-action="Index"><img src="~/images/transfer (1).svg" alt="Logo" class="header__logo-img" /></a>
-                <div class="header__logo-text">Converto</div>
-            </div>
-            <nav class="header__nav">
-                <a href="#" class="header__nav-item">Convert</a>
-                <a href="#" class="header__nav-item">About us</a>
-            </nav>
+            <a asp-controller="Converto" asp-action="Index">
+                <div class="header__logo">
+<img src="~/images/transfer (1).svg" alt="Logo" class="header__logo-img" />
+                    <div class="header__logo-text">Converto</div>
+                </div>
+                </a>
+                <nav class="header__nav">
+                    <a asp-controller="Converto" asp-action="AboutUs" class="header__nav-item">About us</a>
+                </nav>
         </div>
     </header>
         @RenderBody()

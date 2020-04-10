@@ -12,7 +12,7 @@ namespace Converto.Controllers
         {
             return View();
         }
-        public ViewResult About()
+        public ViewResult AboutUs()
         {
             return View();
         }
