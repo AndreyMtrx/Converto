@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Aspose.Words" Version="20.3.0" />
     <PackageReference Include="ConvertApi" Version="3.0.3" />
+    <PackageReference Include="dropzone" Version="4.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />

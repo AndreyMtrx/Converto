@@ -34,27 +34,6 @@ namespace Converto.Controllers
             string mimeType = MimeTypes.GetMimeType(filePath);
             return PhysicalFile(filePath, mimeType, fileName);
         }
-        [HttpGet]
-        public ViewResult WordToPdf()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<PartialViewResult> WordToPdf(IFormFileCollection files)
-        {
-            string conversionGuid = Guid.NewGuid().ToString();
-
-            await UploadFiles(files, conversionGuid);
-            await ConvertFiles("docx", "pdf", conversionGuid);
-
-            List<FileViewModel> filesVM = GetFilesViewModel(conversionGuid);
-
-            await SaveConversionInfo(files, conversionGuid, "docx", "pdf");
-
-            return PartialView("_ConversionResult", filesVM);
-        }
-
         [HttpPost]
         public PartialViewResult FilesInfo(IFormFileCollection files)
         {
@@ -138,6 +117,70 @@ namespace Converto.Controllers
                 dbContext.Add(conversion);
             }
             await dbContext.SaveChangesAsync();
+        }
+        [HttpGet]
+        public ViewResult WordToPdf()
+        {
+            ViewBag.ToFormat = "PDF";
+            return View("WordTo");
+        }
+
+        [HttpPost]
+        public async Task<PartialViewResult> WordToPdf(IFormFileCollection files)
+        {
+            string conversionGuid = Guid.NewGuid().ToString();
+
+            await UploadFiles(files, conversionGuid);
+            await ConvertFiles("docx", "pdf", conversionGuid);
+
+            List<FileViewModel> filesVM = GetFilesViewModel(conversionGuid);
+
+            await SaveConversionInfo(files, conversionGuid, "docx", "pdf");
+
+            return PartialView("_ConversionResult", filesVM);
+        }
+        [HttpGet]
+        public ViewResult WordToJpg()
+        {
+            ViewBag.ToFormat = "JPG";
+            return View("WordTo");
+        }
+
+        [HttpPost]
+        public async Task<PartialViewResult> WordToJpg(IFormFileCollection files)
+        {
+            string conversionGuid = Guid.NewGuid().ToString();
+
+            await UploadFiles(files, conversionGuid);
+            await ConvertFiles("docx", "jpg", conversionGuid);
+
+            List<FileViewModel> filesVM = GetFilesViewModel(conversionGuid);
+
+            await SaveConversionInfo(files, conversionGuid, "docx", "jpg");
+
+            return PartialView("_ConversionResult", filesVM);
+        }
+
+        [HttpGet]
+        public ViewResult WordToTxt()
+        {
+            ViewBag.ToFormat = "TXT";
+            return View("WordTo");
+        }
+
+        [HttpPost]
+        public async Task<PartialViewResult> WordToTxt(IFormFileCollection files)
+        {
+            string conversionGuid = Guid.NewGuid().ToString();
+
+            await UploadFiles(files, conversionGuid);
+            await ConvertFiles("docx", "txt", conversionGuid);
+
+            List<FileViewModel> filesVM = GetFilesViewModel(conversionGuid);
+
+            await SaveConversionInfo(files, conversionGuid, "docx", "txt");
+
+            return PartialView("_ConversionResult", filesVM);
         }
     }
 }

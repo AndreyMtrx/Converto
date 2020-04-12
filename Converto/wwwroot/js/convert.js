@@ -4,7 +4,7 @@
     inputFiles.addEventListener("change", inputChangeEventHandler);
 
     function inputChangeEventHandler() {
-        let files = this.files;
+        let files = inputFiles.files;
         console.log(files);
         if (files.length > 3) {
             alert("You can not convert more than 3 files");
@@ -56,12 +56,15 @@
                 convertForm.remove();
                 $(".convert__page-subtitle").after(partialView);
             });
-
         });
 
+        let method = document.getElementsByClassName("convert__page-title")[0].id;
+        Convert(method, formData);
+    }
+    function Convert(convertBackendMethod, formData) {
         $.ajax({
             type: "post",
-            url: "/Convert/WordToPdf",
+            url: `/Convert/${convertBackendMethod}`,
             processData: false,
             contentType: false,
             data: formData
@@ -71,4 +74,15 @@
         });
     }
 
+    //Drag and drop
+    let dropZone = document.getElementById("convertForm");
+    dropZone.addEventListener("dragover", function (e) {
+        e.preventDefault();
+    });
+    dropZone.addEventListener("drop", function (e) {
+        e.preventDefault();
+        let files = e.dataTransfer.files;
+        inputFiles.files = files;
+        inputChangeEventHandler();
+    });
 })();
